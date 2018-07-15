@@ -304,6 +304,15 @@ configure_file(libbrigand.pc.in
     @ONLY
 )
 
+install(TARGETS brigand
+        EXPORT brigand-config
+        INCLUDES DESTINATION include)
+
+install(EXPORT brigand-config
+        FILE brigand-config.cmake
+        NAMESPACE brigand::
+        DESTINATION share/brigand/cmake)
+        
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/brigand
     DESTINATION include
 )
